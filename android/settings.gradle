@@ -1,0 +1,3 @@
+rootProject.name = 'swapi__demo'
+
+include ':app'
