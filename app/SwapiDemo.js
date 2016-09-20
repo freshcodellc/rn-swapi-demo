@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainNavigator from './navigator';
 import {
+  ActivityIndicator,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -53,7 +54,7 @@ class SwapiDemo extends Component {
       <View style={styles.container}>
         <View>
           { this.state.isLoading &&
-            <Text>LOADING...</Text>
+            <ActivityIndicator size='large'/>
           }
           { this.renderPeople() }
         </View>

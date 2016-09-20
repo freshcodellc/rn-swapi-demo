@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ActivityIndicator,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -41,7 +42,7 @@ class PersonDetail extends Component {
           <Text>BACK</Text>
         </TouchableOpacity>
         { this.state.isLoading &&
-          <Text>LOADING...</Text>
+          <ActivityIndicator size='large'/>
         }
         { this.state.person.name &&
           <View>
