@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import MainNavigator from './navigator';
+import { WIDTH } from './constants/DimensionConstants';
+import { YELLOW, BLACK, WHITE } from './constants/ColorConstants';
 import {
   ActivityIndicator,
+  Image,
   StyleSheet,
+  ScrollView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View
@@ -40,9 +45,11 @@ class SwapiDemo extends Component {
   renderPeople() {
     let peopleList = this.state.people.map((person, i) =>
       <TouchableOpacity key={i} onPress={() => this.handlePress(person.url)}>
-        <Text style={styles.welcome}>
-          {person.name}
-        </Text>
+        <View style={styles.item}>
+          <Text style={styles.welcome}>
+            {person.name}
+          </Text>
+        </View>
       </TouchableOpacity>
     );
 
@@ -52,11 +59,15 @@ class SwapiDemo extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
         <View>
           { this.state.isLoading &&
             <ActivityIndicator size='large'/>
           }
-          { this.renderPeople() }
+          <Image style={styles.image} source={{url: 'http://cdn-static.denofgeek.com/sites/denofgeek/files/styles/article_main_wide_image/public/2016/07/star_wars_logo.jpg?itok=_Om46Q7C'}} resizeMode="contain"/>
+          <ScrollView>
+            { this.renderPeople() }
+          </ScrollView>
         </View>
       </View>
     );
@@ -72,12 +83,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: BLACK
+  },
+  image: {
+    width: WIDTH,
+    height: 80
+  },
+  item: {
+    width: WIDTH,
+    borderBottomWidth: 2,
+    borderColor: YELLOW
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
     margin: 10,
+    textAlign: 'left',
+    color: WHITE
   },
 });
 
