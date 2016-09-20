@@ -20,9 +20,7 @@ class MainNavigator extends Component {
   }
 
   handleBackAndroid() {
-    if (!this.props.test.isTesting) {
-      this.router.pop();
-    }
+    this.router.pop();
     return true;
   }
 
@@ -48,16 +46,16 @@ class MainNavigator extends Component {
 
   render() {
     return (
-        <Navigator
-          ref={view => this.navigator = view}
-          initialRoute={{
-            title: 'Dashboard',
-            component: SwapiDemo,
-            index: 0
-          }}
-          configureScene={this.configureScene.bind(this)}
-          renderScene={this.renderScene.bind(this)}
-          />
+      <Navigator
+        ref={view => this.navigator = view}
+        initialRoute={{
+          title: 'Dashboard',
+          component: SwapiDemo,
+          index: 0
+        }}
+        configureScene={this.configureScene.bind(this)}
+        renderScene={this.renderScene.bind(this)}
+        />
     );
   }
 };
