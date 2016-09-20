@@ -52,6 +52,9 @@ class SwapiDemo extends Component {
     return (
       <View style={styles.container}>
         <View>
+          { this.state.isLoading &&
+            <Text>LOADING...</Text>
+          }
           { this.renderPeople() }
         </View>
       </View>

@@ -15,7 +15,8 @@ class PersonDetail extends Component {
   componentWillMount() {
     const { url } = this.props;
     this.setState({
-      person: {}
+      person: {},
+      isLoading: true
     })
 
     fetch(url)
@@ -39,7 +40,10 @@ class PersonDetail extends Component {
         <TouchableOpacity onPress={this.handleBackPress}>
           <Text>BACK</Text>
         </TouchableOpacity>
-        { this.state.person &&
+        { this.state.isLoading &&
+          <Text>LOADING...</Text>
+        }
+        { this.state.person.name &&
           <View>
             <Text>Name: {this.state.person.name}</Text>
             <Text>Height: {this.state.person.height}</Text>
